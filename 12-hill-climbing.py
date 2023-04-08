@@ -46,7 +46,7 @@ def solve(chars, start, end, check):
 						continue
 					
 					new_height = height[chars[new_r][new_c]]
-					if check(new_height - cur_height):
+					if check(new_height, cur_height):
 						queue.append([new_r, new_c])
 
 			step += 1
@@ -65,8 +65,8 @@ def solve(chars, start, end, check):
 with open("input.txt") as f:
 	chars = [list(line) for line in f.read().split("\n")[:-1]]
 	
-	print(solve(chars, 'S', 'E', (lambda diff: diff <= 1)))
-	print(solve(chars, 'E', 'a', (lambda diff: diff >= -1)))
+	print(solve(chars, 'S', 'E', (lambda new, cur: new-cur <= 1)))
+	print(solve(chars, 'E', 'a', (lambda new, cur: cur-new <= 1)))
 
 
 
