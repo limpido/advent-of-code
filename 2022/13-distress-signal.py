@@ -12,7 +12,7 @@ def solve():
 			if is_right_order(l1, l2) < 0:
 				res += i+1
 		return res
-			
+	
 
 
 def is_right_order(l1, l2):
