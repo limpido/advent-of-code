@@ -1,8 +1,5 @@
-def solve1(data):
+def solve1(winning, yours):
     res = 0
-    winning = [card.split(" | ")[0].split(": ")[1].split() for card in data]
-    winning = [set(card) for card in winning]
-    yours = [card.split("| ")[1].split() for card in data]
 
     for i, card in enumerate(yours):
         point = 0
@@ -15,10 +12,7 @@ def solve1(data):
     return res
 
 
-def solve2(data):
-    winning = [card.split(" | ")[0].split(": ")[1].split() for card in data]
-    winning = [set(card) for card in winning]
-    yours = [card.split("| ")[1].split() for card in data]
+def solve2(winning, yours):
     instances = [1] * len(yours)
     
     for idx, cards in enumerate(yours):
@@ -34,5 +28,8 @@ def solve2(data):
 filename = 'input.txt'
 with open(filename, 'r') as f:
     data = f.read().strip().splitlines()
-    print(solve1(data))
-    print(solve2(data))
+    winning = [card.split(" | ")[0].split(": ")[1].split() for card in data]
+    winning = [set(card) for card in winning]
+    yours = [card.split("| ")[1].split() for card in data]
+    print(solve1(winning, yours))
+    print(solve2(winning, yours))
