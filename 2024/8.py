@@ -1,4 +1,4 @@
-board = [r for r in open("input.txt").read().splitlines()]
+board = open("in.txt").read().splitlines()
 ROW, COL = len(board), len(board[0])
 
 all_antennas = {}
