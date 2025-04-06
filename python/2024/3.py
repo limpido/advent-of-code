@@ -1,5 +1,4 @@
 import re
-from operator import mul
 
 data = open("input.txt").read().strip()
 
